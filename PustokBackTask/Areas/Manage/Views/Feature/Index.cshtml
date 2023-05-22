@@ -1,0 +1,99 @@
+﻿@model PaginatedList<Feature>
+@{
+    int order = (Model.PageIndex - 1) * Model.Items.Count();
+    int pageshow = 5;
+}
+
+
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+        <h1>Features</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Icon</th>
+
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    order++;
+                    <tr>
+                        <th scope="row">@order</th>
+                        <td>@item.Header</td>
+                        <td>@item.Description</td>
+                        <td><i class="@item.Icon"></i></td>
+                        <td>
+                            <a class="btn btn-warning">Edit</a>
+                            <a class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(Model.HasPrev?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex-1)" asp-route-search="@ViewBag.Search">Previous</a>
+                </li>
+                @if (Model.TotalPage > 5)
+                {
+                    @if (Model.PageIndex > 2 && Model.PageIndex <= Model.TotalPage - 2)
+                    {
+                        @for (int i = Model.PageIndex - 2; i <= Model.PageIndex + 2; i++)
+                        {
+                            <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                        }
+                    }
+                    else
+                    {
+                        if (Model.PageIndex <= 2)
+                        {
+                            @for (int i = 1; i <= pageshow; i++)
+                            {
+                                <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                            }
+                        }
+                        else
+                        {
+                            @for (int i = Model.TotalPage - pageshow + 1; i <= Model.TotalPage; i++)
+                            {
+                                <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+
+
+                            }
+                        }
+
+
+                    }
+
+                }
+                else
+                {
+                    for (int i = 1; i <= Model.TotalPage; i++)
+                    {
+                        <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                    }
+
+                }
+
+
+
+                <li class="page-item @(Model.HasNext?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex+1)" asp-route-search="@ViewBag.Search">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
