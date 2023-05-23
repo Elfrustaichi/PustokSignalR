@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using PustokBackTask.DAL;
@@ -8,7 +9,7 @@ using PustokBackTask.ViewModels;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
-
+    [Authorize]
     [Area("manage")]
     public class BookController : Controller
     {

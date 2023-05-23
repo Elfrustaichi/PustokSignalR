@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PustokBackTask.DAL;
 using PustokBackTask.Helpers;
@@ -7,6 +8,7 @@ using PustokBackTask.ViewModels;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class AuthorController : Controller
     {
@@ -38,15 +40,10 @@ namespace PustokBackTask.Areas.Manage.Controllers
         [HttpPost]
         public IActionResult Create(Author author)
         {
-            Author existAuthor = new Author
-            {
-                Image = FileManager.Save(_env.WebRootPath,"uploads/authors",author.Image)
-                
-            };
           
             
 
-            _context.Authors.Add(existAuthor);
+            _context.Authors.Add(author);
             _context.SaveChanges();
 
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PustokBackTask.DAL;
 using PustokBackTask.Helpers;
@@ -7,6 +8,7 @@ using PustokBackTask.ViewModels;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class SliderController : Controller
     {
@@ -22,7 +24,7 @@ namespace PustokBackTask.Areas.Manage.Controllers
         {
             var query = _context.Sliders.OrderBy(x => x.Order).AsQueryable();
 
-            return View(PaginatedList<Slider>.Create(query, page, 2));
+            return View(PaginatedList<Sliders>.Create(query, page, 2));
         }
 
         public IActionResult Create()
@@ -35,7 +37,7 @@ namespace PustokBackTask.Areas.Manage.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Slider slider)
+        public IActionResult Create(Sliders slider)
         {
             ViewBag.NextOrder = slider.Order;
             if (!ModelState.IsValid) return View();
@@ -59,7 +61,7 @@ namespace PustokBackTask.Areas.Manage.Controllers
 
         public IActionResult Edit(int id)
         {
-            Slider slider = _context.Sliders.Find(id);
+            Sliders slider = _context.Sliders.Find(id);
 
             if (slider == null) return View("Error");
 
@@ -68,11 +70,11 @@ namespace PustokBackTask.Areas.Manage.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Slider slider)
+        public IActionResult Edit(Sliders slider)
         {
             if (!ModelState.IsValid) return View();
 
-            Slider existSlider = _context.Sliders.Find(slider.Id);
+            Sliders existSlider = _context.Sliders.Find(slider.Id);
 
             if (existSlider == null) return View("Error");
 

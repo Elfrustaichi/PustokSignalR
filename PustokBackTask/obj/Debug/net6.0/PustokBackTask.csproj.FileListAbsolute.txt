@@ -1074,3 +1074,8 @@ C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\obj\Debug\net6.0\refint\Pust
 C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\obj\Debug\net6.0\PustokBackTask.pdb
 C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\obj\Debug\net6.0\PustokBackTask.genruntimeconfig.cache
 C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\obj\Debug\net6.0\ref\PustokBackTask.dll
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

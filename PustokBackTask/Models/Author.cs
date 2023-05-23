@@ -8,8 +8,6 @@ namespace PustokBackTask.Models
         [Required]
         [MaxLength(20)]
         public string FullName { get; set; }
-        
-        public IFormFile Image { get; set; }
 
         public List<Book> Books { get; set; }
     }

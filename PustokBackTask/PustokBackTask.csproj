@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Manage\ViewModels\" />
     <Folder Include="wwwroot\image\products\" />
     <Folder Include="wwwroot\uploads\authors\" />
   </ItemGroup>

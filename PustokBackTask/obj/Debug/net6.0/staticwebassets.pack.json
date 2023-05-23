@@ -317,82 +317,6 @@
       "PackagePath": "staticwebassets\\image\\others\\home-side-promo.jpg"
     },
     {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\cart-product-1.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\cart-product-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-1.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-10.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-10.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-11.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-11.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-12.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-12.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-13.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-13.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-2.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-3.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-4.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-5.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-6 (2).jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-6 (2).jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-6.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-7.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-8.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-8.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-9.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-9.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-details-1.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-details-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-details-2.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-details-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-details-3.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-details-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\image\\products\\product-details-5.jpg",
-      "PackagePath": "staticwebassets\\image\\products\\product-details-5.jpg"
-    },
-    {
       "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\js\\ajax-mail.js",
       "PackagePath": "staticwebassets\\js\\ajax-mail.js"
     },
@@ -7735,6 +7659,78 @@
     {
       "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\manage\\vendor\\jquery\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\manage\\vendor\\jquery\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\cart-product-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\cart-product-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-10.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-11.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-12.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-13.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-7.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-8.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-details-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-details-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-details-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-details-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-details-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-details-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\uploads\\books\\product-details-5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\books\\product-details-5.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.PustokBackTask.Microsoft.AspNetCore.StaticWebAssets.props",

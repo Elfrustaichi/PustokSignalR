@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PustokBackTask.Models
 {
-    public class Slider
+    public class Sliders
     {
         public int Id { get; set; }
         public int Order { get; set; }

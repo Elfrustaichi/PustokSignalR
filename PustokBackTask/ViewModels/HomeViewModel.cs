@@ -6,7 +6,7 @@ namespace PustokBackTask.ViewModels
     {
         public List<Feature> features = new List<Feature>();
 
-        public List<Slider> sliders = new List<Slider>();
+        public List<Sliders> sliders = new List<Sliders>();
 
         public List<Book> FeaturedBooks = new List<Book>();
 

@@ -26,6 +26,21 @@ builder.Services.AddScoped<LayoutService>();
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Events.OnRedirectToLogin = options.Events.OnRedirectToAccessDenied = context =>
+    {
+        if (context.HttpContext.Request.Path.Value.StartsWith("/manage"))
+        {
+            var RedirectUri = new Uri(context.RedirectUri);
+            context.Response.Redirect("/manage/account/login"+RedirectUri.Query);
+        }
+        return Task.CompletedTask;
+    };
+});
+
+
+
 
 var app = builder.Build();
 
@@ -38,6 +53,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PustokBackTask.DAL;
 using PustokBackTask.Models;
@@ -6,6 +7,7 @@ using PustokBackTask.ViewModels;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
+    [Authorize]
     [Area("manage")]
     public class TagController : Controller
     {
