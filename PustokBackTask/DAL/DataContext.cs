@@ -31,7 +31,11 @@ namespace PustokBackTask.DAL
 
         public DbSet<AppUser> AppUsers { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<BasketItem> BasketItems { get; set; }
+
+		public DbSet<BookComment> BookComments { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookTag>().HasKey(x => new { x.TagId, x.BookId });
 

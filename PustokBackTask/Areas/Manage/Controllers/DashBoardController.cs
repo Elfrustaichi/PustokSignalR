@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
-    [Authorize]
-    [Area("manage")]
+	[Authorize(Roles = "SuperAdmin,Admin")]
+	[Area("manage")]
     public class DashBoardController : Controller
     {
         public IActionResult Index()

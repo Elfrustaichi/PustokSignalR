@@ -6,8 +6,8 @@ using PustokBackTask.ViewModels;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
-    [Authorize]
-    [Area("manage")]
+	[Authorize(Roles = "SuperAdmin,Admin")]
+	[Area("manage")]
     public class FeatureController : Controller
     {
         private readonly DataContext _context;

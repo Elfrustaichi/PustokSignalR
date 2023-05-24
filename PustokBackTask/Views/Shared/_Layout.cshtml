@@ -223,7 +223,7 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        @if (User.Identity.IsAuthenticated)
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
                                         {
                                             <a asp-action="index" asp-controller="profile" class="font-weight-bold">@User.Identity.Name</a> <br>
                                             <span>or</span>

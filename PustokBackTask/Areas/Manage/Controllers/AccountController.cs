@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PustokBackTask.Areas.Manage.ViewModels;
 using PustokBackTask.Models;
 
 namespace PustokBackTask.Areas.Manage.Controllers
 {
-
+    [Authorize(Roles ="SuperAdmin,Admin")]
         [Area("manage")]
         public class AccountController : Controller
         {
@@ -13,25 +14,37 @@ namespace PustokBackTask.Areas.Manage.Controllers
 
         private readonly SignInManager<AppUser> _signInManager;
 
-            public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+            public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> RoleManager)
             {
                 _userManager = userManager;
                 _signInManager=signInManager;
+                _roleManager=RoleManager;
             }
 
         //public async Task<IActionResult> CreateAdmin()
         //{
         //    AppUser User = new AppUser
         //    {
-        //        UserName = "admin",
+        //        UserName = "S-Admin",
         //        IsAdmin = true,
 
         //    };
-        //    var result= await _userManager.CreateAsync(User,"Admin333");
+        //    var result= await _userManager.CreateAsync(User,"Admin123");
+        //    await _userManager.AddToRoleAsync(User, "SuperAdmin");
+
         //    return Json(result);
         //}
            
-            
+        //   public async Task<IActionResult> CreateRoles()
+        //{
+        //    await _roleManager.CreateAsync(new IdentityRole ("SuperAdmin" ));
+        //    await _roleManager.CreateAsync(new IdentityRole ("Admin" ));
+        //    await _roleManager.CreateAsync(new IdentityRole ("Member" ));
+
+        //    return Ok();
+        //}
 
 
             public IActionResult Login()

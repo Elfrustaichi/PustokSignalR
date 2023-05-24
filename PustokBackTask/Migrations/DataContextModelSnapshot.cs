@@ -244,6 +244,33 @@ namespace PustokBackTask.Migrations
                     b.ToTable("Authors");
                 });
 
+            modelBuilder.Entity("PustokBackTask.Models.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("PustokBackTask.Models.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -293,6 +320,41 @@ namespace PustokBackTask.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("PustokBackTask.Models.BookComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookComments");
                 });
 
             modelBuilder.Entity("PustokBackTask.Models.BookImage", b =>
@@ -523,6 +585,25 @@ namespace PustokBackTask.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PustokBackTask.Models.BasketItem", b =>
+                {
+                    b.HasOne("PustokBackTask.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PustokBackTask.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("PustokBackTask.Models.Book", b =>
                 {
                     b.HasOne("PustokBackTask.Models.Author", "Author")
@@ -540,6 +621,25 @@ namespace PustokBackTask.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Genre");
+                });
+
+            modelBuilder.Entity("PustokBackTask.Models.BookComment", b =>
+                {
+                    b.HasOne("PustokBackTask.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PustokBackTask.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("PustokBackTask.Models.BookImage", b =>

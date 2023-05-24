@@ -88,6 +88,8 @@ namespace PustokBackTask.Controllers
                 return View();
             }
 
+            await _userManager.AddToRoleAsync(user, "Member");
+
             await _signInManager.SignInAsync(user, false);
 
             return RedirectToAction("index", "home");

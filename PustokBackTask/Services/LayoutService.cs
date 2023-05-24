@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using PustokBackTask.DAL;
 using PustokBackTask.Models;
 using PustokBackTask.ViewModels;
+using System.Security.Claims;
 
 namespace PustokBackTask.Services
 {
@@ -29,26 +30,49 @@ namespace PustokBackTask.Services
         }
         public BasketViewModel GetBasket()
         {
-            var bv = new BasketViewModel();
-            var basketJson = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
-
-            if (basketJson != null)
+            if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated &&_httpContextAccessor.HttpContext.User.IsInRole("Member"))
             {
-                var cookieItems = JsonConvert.DeserializeObject<List<BasketCookieViewModel>>(basketJson);
+				var BasketItems=_context.BasketItems.Include(x=>x.Book).ThenInclude(x=>x.BookImages).Where(x=>x.AppUserId==_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
+                var bv = new BasketViewModel();
+				
 
-                foreach (var ci in cookieItems)
-                {
-                    BasketItemViewModel bi = new BasketItemViewModel
-                    {
-                        Count = ci.BookCount,
-                        Book = _context.Books.Include(x => x.BookImages).FirstOrDefault(x => x.Id == ci.BookId)
-                    };
-                    bv.BasketItems.Add(bi);
-                    bv.TotalPrice += (bi.Book.DiscountPercent > 0 ? (bi.Book.SalePrice * (100 - bi.Book.DiscountPercent) / 100) : bi.Book.SalePrice) * bi.Count;
-                }
-            }
+				foreach (var bi in BasketItems)
+				{
+					BasketItemViewModel bivm = new BasketItemViewModel
+					{
+						Count = bi.Count,
+						Book = bi.Book
+					};
+					bv.BasketItems.Add(bivm);
+					bv.TotalPrice += (bi.Book.DiscountPercent > 0 ? (bi.Book.SalePrice * (100 - bi.Book.DiscountPercent) / 100) : bi.Book.SalePrice) * bi.Count;
+				}
+				return bv;
 
-            return bv;
+			}
+            else
+            {
+				var bv = new BasketViewModel();
+				var basketJson = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
+
+				if (basketJson != null)
+				{
+					var cookieItems = JsonConvert.DeserializeObject<List<BasketCookieViewModel>>(basketJson);
+
+					foreach (var ci in cookieItems)
+					{
+						BasketItemViewModel bi = new BasketItemViewModel
+						{
+							Count = ci.BookCount,
+							Book = _context.Books.Include(x => x.BookImages).FirstOrDefault(x => x.Id == ci.BookId)
+						};
+						bv.BasketItems.Add(bi);
+						bv.TotalPrice += (bi.Book.DiscountPercent > 0 ? (bi.Book.SalePrice * (100 - bi.Book.DiscountPercent) / 100) : bi.Book.SalePrice) * bi.Count;
+					}
+				}
+
+				return bv;
+			}
+           
         }
     }
     
