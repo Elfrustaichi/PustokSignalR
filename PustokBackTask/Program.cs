@@ -19,6 +19,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
     opt.Password.RequiredLength = 8;
+    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(10);
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<DataContext>();
 
 

@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/plugins.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/main.css" />
     <link rel="shortcut icon" type="image/x-icon" href="~/image/favicon.ico">
+    @RenderSection("styles",required:false);
 </head>
 
 <body>
@@ -27,7 +28,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3 ">
-                            <a href="index.html" class="site-brand">
+                            <a asp-action="index" asp-controller="home" class="site-brand">
                                 <img src="~/image/@settings["HeaderLogo"]" alt="">
                             </a>
                         </div>
@@ -225,7 +226,7 @@
                                     <div class="login-block">
                                         @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
                                         {
-                                            <a asp-action="index" asp-controller="profile" class="font-weight-bold">@User.Identity.Name</a> <br>
+                                            <a asp-action="profile" asp-controller="account" class="font-weight-bold">@User.Identity.Name</a> <br>
                                             <span>or</span>
 
                                             <a asp-action="logout" asp-controller="account">Logout</a>

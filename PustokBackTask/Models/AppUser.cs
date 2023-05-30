@@ -6,5 +6,9 @@ namespace PustokBackTask.Models
     {
         public string FullName { get; set; }
         public bool IsAdmin { get; set; }
+
+        public string Phone {get; set;}
+
+        public string Adress {get; set;}
     }
 }

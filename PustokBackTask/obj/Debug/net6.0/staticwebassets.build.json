@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BOepqa/KOpFAklTeypfQwV8jXI4xZHU03G4BQzGGIU8=",
+  "Hash": "DwtORT5EkAJgGoyxh9PHqphVFou7B1UtJ0EAZh8OEz8=",
   "Source": "PustokBackTask",
   "BasePath": "_content/PustokBackTask",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\css\\ordertable.css",
+      "SourceId": "PustokBackTask",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\",
+      "BasePath": "_content/PustokBackTask",
+      "RelativePath": "css/ordertable.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ordertable.css"
     },
     {
       "Identity": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\css\\plugins.css",

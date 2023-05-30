@@ -52,6 +52,7 @@ namespace PustokBackTask.Controllers
 
 			if (!ModelState.IsValid)
 			{
+				
 				Book book = _context.Books
 			.Include(x => x.BookImages)
 			.Include(x => x.Author)

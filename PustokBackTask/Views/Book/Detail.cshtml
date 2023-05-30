@@ -1,5 +1,7 @@
 ﻿@model BookDetailViewModel
-
+@{
+    int rate = Model.Book.BookComments.Any() ? (int)Math.Ceiling(Model.Book.BookComments.Average(x => x.Rate)) : 0;
+}
 <section class="breadcrumb-section">
     <h2 class="sr-only">Site Breadcrumb</h2>
     <div class="container">
@@ -55,7 +57,13 @@
             </div>
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30 ">
-                    <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
+                    <p class="tag-block">
+                        Tags:    @foreach (var item in Model.Book.BookTags)
+                        {
+                            <a href="#">@item.Tag.Name </a>
+                            @(Model.Book.BookTags.Last().TagId == item.TagId ? "" : ",")
+                        }
+                    </p>
                     <h3 class="product-title">@Model.Book.Name</h3>
                     <ul class="list-unstyled">
                         <li>Ex Tax: <span class="list-value"> £60.24</span></li>
@@ -70,11 +78,12 @@
                     </div>
                     <div class="rating-widget">
                         <div class="rating-block">
-                            <span class="fas fa-star star_on"></span>
-                            <span class="fas fa-star star_on"></span>
-                            <span class="fas fa-star star_on"></span>
-                            <span class="fas fa-star star_on"></span>
-                            <span class="fas fa-star "></span>
+                            @for (int i = 1; i <=5; i++)
+                            {
+                                <span class="fas fa-star @(i>rate?"":"star_on")"></span>
+                            }
+                            
+                          
                         </div>
                         <div class="review-widget">
                             <a href="#">(@Model.Book.BookComments.Count Reviews)</a> <span>|</span>
@@ -149,27 +158,27 @@
                 <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
                     <div class="review-wrapper">
                         <h2 class="title-lg mb--20">1 REVIEW FOR AUCTOR GRAVIDA ENIM</h2>
-                        <div class="review-comment mb--20">
-                            <div class="avatar">
-                                <img src="~/uploads/books/icon/author-logo.png" alt="">
-                            </div>
-                            <div class="text">
-                                <div class="rating-block mb--15">
-                                    <span class="ion-android-star-outline star_on"></span>
-                                    <span class="ion-android-star-outline star_on"></span>
-                                    <span class="ion-android-star-outline star_on"></span>
-                                    <span class="ion-android-star-outline"></span>
-                                    <span class="ion-android-star-outline"></span>
+                       @foreach (var item in Model.Book.BookComments)
+                        {
+                            <div class="review-comment mb--20">
+                                
+                                <div class="text">
+                                    <div class="rating-block mb--15">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            <span class="ion-android-star-outline @(i>item.Rate?"":"star_on")"></span>
+                                           
+                                        }
+                                    </div>
+                                    <h6 class="author">
+                                        @item.AppUser.FullName – <span class="font-weight-400">@item.CreatedAt.ToString("MMMM dd , yyyy")</span>
+                                    </h6>
+                                    <p>
+                                        @item.Text
+                                    </p>
                                 </div>
-                                <h6 class="author">
-                                    ADMIN – <span class="font-weight-400">March 23, 2015</span>
-                                </h6>
-                                <p>
-                                    Lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio
-                                    quis mi.
-                                </p>
                             </div>
-                        </div>
+                        }
                         @Html.Partial("_BookCommentFormPartial",Model.Comment)
                     </div>
                 </div>
