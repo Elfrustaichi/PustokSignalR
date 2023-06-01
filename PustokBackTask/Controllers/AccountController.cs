@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MailKit.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using MimeKit.Text;
+using MimeKit;
 using PustokBackTask.DAL;
 using PustokBackTask.Models;
 using PustokBackTask.ViewModels;
 using System.Security.Claims;
+using MailKit.Net.Smtp;
+using PustokBackTask.Services;
+using AspNetCore;
 
 namespace PustokBackTask.Controllers
 {
@@ -15,12 +21,14 @@ namespace PustokBackTask.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly DataContext _context;
+        private readonly IEmailSender _emailSender;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,DataContext context)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,DataContext context,IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+            _emailSender=emailSender;
         }
         public IActionResult Login()
         {
@@ -119,7 +127,7 @@ namespace PustokBackTask.Controllers
 
             if (user == null)
             {
-                _signInManager.SignOutAsync();
+                await _signInManager.SignOutAsync();
                 return RedirectToAction("login");
             }
 
@@ -204,8 +212,9 @@ namespace PustokBackTask.Controllers
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
             string url = Url.Action("resetpassword", "account", new { email = passwordVM.Email, token = token }, Request.Scheme);
+            _emailSender.Send(passwordVM.Email, "Reset Password", $"Click <a href=\"{url}\">here</a> to reset your password");
 
-            return Json(new { url = url });
+            return RedirectToAction("login");
         }
 
         public async Task<IActionResult> Resetpassword(string email, string token)
@@ -240,5 +249,39 @@ namespace PustokBackTask.Controllers
             return RedirectToAction("login");
         }
 
+        public IActionResult GoogleLogin()
+        {
+			string url = Url.Action("googleresponse", "account", Request.Scheme);
+
+			var prop = _signInManager.ConfigureExternalAuthenticationProperties("Google", url);
+
+			return new ChallengeResult("Google", prop);
+		}
+
+        public async Task<IActionResult> GoogleResponse()
+        {
+			var info = _signInManager?.GetExternalLoginInfoAsync().Result;
+
+			if (info == null) return RedirectToAction("login");
+
+			var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+			AppUser user = _userManager.FindByEmailAsync(email).Result;
+
+			if (user == null)
+			{
+				user = new AppUser { Email = email, UserName = email };
+				var result = _userManager.CreateAsync(user).Result;
+
+				if (!result.Succeeded) return RedirectToAction("login");
+
+				await _userManager.AddToRoleAsync(user, "Member");
+			}
+
+			await _signInManager.SignInAsync(user, false);
+
+			return RedirectToAction("index", "home");
+
+		}
     }
 }

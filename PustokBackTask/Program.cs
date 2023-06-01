@@ -24,6 +24,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 
 
 builder.Services.AddScoped<LayoutService>();
+builder.Services.AddScoped<IEmailSender,EmailSender>();
+
+builder.Services.AddAuthentication().AddGoogle(opt =>
+{
+    opt.ClientId = "183091077431-vanfdi83raul7du6qrbfc0pdau6pfa87.apps.googleusercontent.com";
+    opt.ClientSecret = "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";
+});
 
 builder.Services.AddHttpContextAccessor();
 
