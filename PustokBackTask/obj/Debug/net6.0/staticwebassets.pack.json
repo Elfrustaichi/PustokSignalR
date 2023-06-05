@@ -329,12 +329,24 @@
       "PackagePath": "staticwebassets\\js\\custom.js"
     },
     {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\js\\hub.js",
+      "PackagePath": "staticwebassets\\js\\hub.js"
+    },
+    {
       "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\js\\index.js",
       "PackagePath": "staticwebassets\\js\\index.js"
     },
     {
       "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\js\\plugins.js",
       "PackagePath": "staticwebassets\\js\\plugins.js"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js"
     },
     {
       "Id": "C:\\Users\\umid_\\Desktop\\LapTezePustok\\PustokBackTask\\wwwroot\\manage\\css\\sb-admin-2.css",

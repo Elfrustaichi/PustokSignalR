@@ -108,6 +108,8 @@ namespace PustokBackTask.Controllers
             }
             _context.Orders.Add(order);
             _context.SaveChanges();
+
+            TempData["Success"] = "Order Created successfully";
             
             return RedirectToAction("index","home");
         }

@@ -1,18 +1,17 @@
-﻿using MailKit.Security;
+﻿
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 using Microsoft.EntityFrameworkCore;
-using MimeKit.Text;
-using MimeKit;
+
 using PustokBackTask.DAL;
 using PustokBackTask.Models;
 using PustokBackTask.ViewModels;
 using System.Security.Claims;
-using MailKit.Net.Smtp;
+
 using PustokBackTask.Services;
-using AspNetCore;
+
 
 namespace PustokBackTask.Controllers
 {
@@ -64,7 +63,7 @@ namespace PustokBackTask.Controllers
                 ModelState.AddModelError("", "Email or password is incorrect");
                 return View();
             }
-            
+            TempData["Success"] = "Logged in successfuly";
             return RedirectToAction("index", "home");
         }
         public IActionResult Register()
@@ -111,6 +110,7 @@ namespace PustokBackTask.Controllers
 
             await _signInManager.SignInAsync(user, false);
 
+            TempData["Success"] = "Registered successfuly";
             return RedirectToAction("index", "home");
         }
 
@@ -222,7 +222,11 @@ namespace PustokBackTask.Controllers
             AppUser user = await _userManager.FindByEmailAsync(email);
 
             if (user == null || user.IsAdmin || !await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", token))
+            {
+                TempData["Error"] = "Your reset password request is incorrect.";
                 return RedirectToAction("login");
+            }
+                
 
             ViewBag.Email = email;
             ViewBag.Token = token;

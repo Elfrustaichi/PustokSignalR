@@ -418,7 +418,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
     <script src="~/manage/vendor/jquery/jquery.min.js"></script>
     <script src="~/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -430,10 +429,12 @@
 
     <!-- Page level plugins -->
     <script src="~/manage/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
     <!-- Page level custom scripts -->
     @RenderSection("Scripts",required:false)
     <script src="~/manage/js/main.js"></script>
+    <script src="~/js/hub.js"></script>
 
 
 </body>

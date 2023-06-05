@@ -1084,3 +1084,5 @@ C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\MailKit.dll
 C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\MimeKit.dll
 C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\libman.json
+C:\Users\umid_\Desktop\LapTezePustok\PustokBackTask\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll

@@ -16,12 +16,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Use Minified Plugins Version For Fast Page Load -->
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/plugins.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/main.css" />
     <link rel="shortcut icon" type="image/x-icon" href="~/image/favicon.ico">
     @RenderSection("styles",required:false);
 </head>
 
 <body>
+    @if (TempData["Success"] != null)
+    {
+        <input type="hidden" value="@TempData["Success"]" id="successInput" />
+    }
+    else if (TempData["Error"] != null)
+    {
+        <input type="hidden" value="@TempData["Error"]" id="errorInput" />
+    }
     <div class="site-wrapper" id="top">
         <div class="site-header d-none d-lg-block">
             <div class="header-middle pt--10 pb--10">
@@ -862,8 +871,38 @@
     <script src="~/js/plugins.js"></script>
     <script src="~/js/ajax-mail.js"></script>
     <script src="~/js/custom.js"></script>
-    <script src="~/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/hub.js"></script>
     @RenderSection("Scripts",required:false)
+
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        if ($("#successInput").length) {
+            toastr["success"]($("#successInput").val())
+        }
+        else if ($("#errorInput").length) {
+            toastr["error"]($("#errorInput").val())
+        }
+    </script>
 </body>
 
 

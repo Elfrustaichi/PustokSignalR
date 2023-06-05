@@ -1,0 +1,28 @@
+﻿﻿.remove-icon {
+    width: 26px;
+    font-size: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    color: red;
+    border: 2px solid red;
+    text-align: center;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-offline {
+    background: gray;
+}
+
+.dot-online {
+    background: green;
+}

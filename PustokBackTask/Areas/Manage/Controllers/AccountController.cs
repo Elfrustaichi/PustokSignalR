@@ -59,6 +59,12 @@ namespace PustokBackTask.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Roles = "SuperAdmin,Admin")]
+        public IActionResult Users()
+        {
+            var users = _userManager.Users.Where(x => !x.IsAdmin).ToList();
+            return View(users);
+        }
 
     }
 

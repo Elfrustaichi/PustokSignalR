@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PustokBackTask;
 using PustokBackTask.DAL;
 using PustokBackTask.Models;
 using PustokBackTask.Services;
@@ -22,6 +23,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
     opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(10);
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<DataContext>();
 
+builder.Services.AddSignalR();
 
 builder.Services.AddScoped<LayoutService>();
 builder.Services.AddScoped<IEmailSender,EmailSender>();
@@ -77,5 +79,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-
+app.MapHub<PustokHub>("/pustokhub");
 app.Run();

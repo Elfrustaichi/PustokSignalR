@@ -10,5 +10,8 @@ namespace PustokBackTask.Models
         public string Phone {get; set;}
 
         public string Adress {get; set;}
+        public string ConnectionId { get; set; }
+        public DateTime LastOnlineAt { get; set; }
+
     }
 }
